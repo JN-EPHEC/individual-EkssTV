@@ -4,7 +4,7 @@ const users = [
 { id: 2, name: "Bob" },
 ];
 
-//const express = require('express')
+
 const router = express.Router()
 
 router.get("/", (req : object,res : object ) =>{
