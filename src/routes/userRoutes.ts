@@ -11,3 +11,4 @@ router.get("/", (req : object,res : object ) =>{
     res.json(users);
 });
 
+export default router;
