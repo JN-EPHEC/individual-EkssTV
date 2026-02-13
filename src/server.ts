@@ -1,7 +1,7 @@
 import express from 'express';
 import userRoutes from './routes/userRoutes.js';
 import sequelize from './config/database.js';
-
+import "./models/User.js";
 //Constantes
 const app = express();
 const port = 3000;
@@ -15,16 +15,28 @@ app.get('/',(req : object,res:object) => {
     console.log(typeof(req),typeof(res));
 });
 ///Dans la console
-    app.listen(port, () => {
-        console.log(`Serveur lancé sur http://localhost:${port}`);
-    });
+    
     /// Connection test for sqlite and Sequelize
-try {
-  await sequelize.authenticate();
-  console.log('Connection has been established successfully.');
-} catch (error) {
-  console.error('Unable to connect to the database:', error);
-}
+    try {
+    await sequelize.authenticate();
+    console.log('Connection has been established successfully.');
+        ///Syncronisation des tables (model)
+        try {
+            await sequelize.sync()
+            console.log('la syncro est done')
+            /// Lancement du Serveur
+            app.listen(port, () => {
+                console.log(`Serveur lancé sur http://localhost:${port}`);
+            });
+        } catch (error){
+            console.error('La syncro a foiré')
+        }
+    } catch (error) {
+    console.error('Unable to connect to the database:', error);
+    }
+
+
+
 /// Exo du TP1
     app.get('/api/data',(req,res) => {
         res.json(etudiants);
