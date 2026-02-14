@@ -22,14 +22,7 @@ users.init(
             type : DataTypes.STRING,
             allowNull: false,
         },
-        createdAt:{
-            type: DataTypes.DATE,
-            allowNull: false,
-        },
-        updatedAt:{
-            type: DataTypes.DATE,
-            allowNull: false,
-        }
+        
     },
     {
         //les options de la table ici (model)
@@ -37,5 +30,6 @@ users.init(
         modelName: 'users',// Nom de la table 
     },
 );
+
 
 export default users
