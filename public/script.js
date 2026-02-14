@@ -1,7 +1,7 @@
 function listMaker(dico){
     let list ="";
     for(let i of dico){
-        list+= `<li class="list-group-item d-flex align-items-center">${i['prenom']} ${i['nom']} <button type="button" class="btn btn-danger ms-auto">X</button></li>`
+        list+= `<li class="list-group-item d-flex align-items-center">${i['prenom']} ${i['nom']} <button id='${i['id']}'type="button" class="btn btn-danger ms-auto" onclick="deleteUser(this)">X</button></li>`
     };
     return list
 };
@@ -16,6 +16,20 @@ function addUser(form){
         "prenom" : form.userprenom.value
     }
     postUser(user);
+};
+
+async function deleteUser(button){
+    console.log(button.id);
+    try{
+        const response = await fetch(`http://localhost:3000/api/users/${button.id}`,{
+        method: 'DELETE',
+        });
+        loadData();
+    }
+    catch(err) {
+        console.error("Erreur :", err);
+    };
+    
 };
 async function loadData() {
   try {
@@ -48,6 +62,7 @@ function init(){
         let form = e.target;
         addUser(form);
     });
+    
     loadData();
     console.log('JS up ')
 
