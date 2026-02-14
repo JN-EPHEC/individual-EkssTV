@@ -4,11 +4,16 @@ import sequelize from "../config/database.js";
 
 /// User table (model)
 
-class User extends Model {}
+class users extends Model {}
 
-User.init(
+users.init(
     {
         // Attributs ici
+        id : {
+            type : DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement:true
+        },
         prenom :{
             type : DataTypes.STRING,
             allowNull: false,
@@ -17,13 +22,22 @@ User.init(
             type : DataTypes.STRING,
             allowNull: false,
         },
+        createdAt:{
+            type: DataTypes.DATE,
+            allowNull: false,
+        },
+        updatedAt:{
+            type: DataTypes.DATE,
+            allowNull: false,
+        }
     },
     {
         //les options de la table ici (model)
         sequelize, //need to pass the connection instance
-        modelName: 'User',// Nom de la table 
+        modelName: 'users',// Nom de la table 
     },
 );
 
-console.log(User === sequelize.models.User);
+console.log(users === sequelize.models.User);
 
+export default users
