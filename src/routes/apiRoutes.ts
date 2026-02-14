@@ -9,7 +9,7 @@ router.get("/", (req : object,res:object) => {
     console.log(typeof(req),typeof(res));
 });
 //Redirection
-router.use('/api/users',userRoutes);
-router.use('/api/data',etudiantRoutes);
-router.use('/api/hello',apiHello)
+router.use('/users',userRoutes);
+router.use('/data',etudiantRoutes);
+router.use('/hello',apiHello)
 export default router;

@@ -38,6 +38,4 @@ users.init(
     },
 );
 
-console.log(users === sequelize.models.User);
-
 export default users
