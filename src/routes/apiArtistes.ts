@@ -15,7 +15,7 @@ router.get('/', async (req:object,res:object)=>{
             attributes: ["nom"] 
         }
     });
-    res.json(artistesAll);
+    res.status(200).json(artistesAll);
 });
 ///GET id
 router.get('/:id', async (req:object,res:object)=>{
@@ -28,7 +28,7 @@ router.get('/:id', async (req:object,res:object)=>{
             attributes: ["nom"] 
         }
     });
-    res.json(artiste);
+    res.status(200).json(artiste);
 });
 ///GET artiste par id de groupe
 router.get('/asgroupe/:id', async (req:object,res:object)=>{
@@ -49,12 +49,12 @@ router.get('/sexe/:sexe', async (req:object,res:object)=>{
     const artistebySexe = await artistes.findAll({
         where : {sexe}
     });
-    res.json(artistebySexe);
+    res.status(200).json(artistebySexe);
 });
 ///post 
 router.post("/",async (req:object,res:object) => {
     const art = await artistes.create(req.body);
-    res.json(art);
+    res.status(201).json(art);
     console.log(`L'artiste ${art} à bien été crée`)
 });
 
