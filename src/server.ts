@@ -2,15 +2,22 @@ import express from 'express';
 import apiRoutes from './routes/apiRoutes.js';
 import sequelize from './config/database.js';
 import "./models/Users.js";
+import apiGroupes from './routes/apiGroupes.js';
+import "./models/Artistes.js";
+import "./models/Groupes.js";
 
 //Constantes
 const app = express();
 const port = 3000;
-// Pour paser le JSON, pour que Express parse le req en jspn
+// Pour paser le JSON, pour que Express parse le req en json
 app.use(express.json());
 ///Redirection de request
 app.use('/api',apiRoutes);
 app.use('/',express.static('public'));
+//DEVOIR 1
+app.use('/api/groupes',apiGroupes);
+app.use('/groupes',express.static('public/groupes'));
+
 ///Dans la console
     
     /// Connection test for sqlite and Sequelize

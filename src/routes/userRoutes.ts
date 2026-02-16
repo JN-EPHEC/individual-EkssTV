@@ -11,7 +11,7 @@ router.get("/", async (req : object,res : object ) =>{
 // ici je crée un user et je le met dans Users
 router.post("/", async (req:object,res:object) => {
     const user = await users.create(req.body);
-    res.json(user)
+    res.json(user);
 });
 // ici je supprime un user dans Users selon son id
 
