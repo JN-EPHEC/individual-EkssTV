@@ -52,7 +52,7 @@ router.get('/sexe/:sexe', async (req:object,res:object)=>{
     res.status(200).json(artistebySexe);
 });
 ///post 
-router.post("/",async (req:object,res:object) => {
+router.post("/",async (req:Object,res:Object) => {
     const art = await artistes.create(req.body);
     res.status(201).json(art);
     console.log(`L'artiste ${art} à bien été crée`)
