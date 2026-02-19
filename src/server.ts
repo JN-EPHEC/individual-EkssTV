@@ -1,16 +1,16 @@
 import express from 'express';
 import apiRoutes from './routes/apiRoutes.js';
 import sequelize from './config/database.js';
-import "./models/Users.js";
 import apiGroupes from './routes/apiGroupes.js';
-import "./models/Artistes.js";
-import "./models/Groupes.js";
-
+import {requestLogger} from './middlewares/logger.js'
 //Constantes
 const app = express();
 const port = 3000;
 // Pour paser le JSON, pour que Express parse le req en json
+
 app.use(express.json());
+// Pour utiliser le logger 
+app.use(requestLogger);
 ///Redirection de request
 app.use('/api',apiRoutes);
 app.use('/',express.static('public'));
