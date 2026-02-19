@@ -20,6 +20,7 @@ function makeCardsArtist(dico){
         if(i.sexe =="M"){sexe = "Man"}
         cards += `<div class="card m-1 " style="width: 18rem;"><img class="img-thumbnail"src="./img/pasgroupe.jpeg" class="card-img-top" alt="not real image"><div class="card-body">
                 <h5 class="card-title">${i.nickname} </h5>
+                <p class="card-text"> Nationalité : ${i.nation} </p>
                 <p class="card-text"> Sexe : ${sexe}</p>
                 <p class="card-text"> Groupe : ${i.groupe.nom}</p>
                 <a onclick="showGroupes(${i.groupeId})" class="btn btn-primary">Voir le groupe</a>

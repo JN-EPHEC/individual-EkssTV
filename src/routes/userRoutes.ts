@@ -1,25 +1,12 @@
 import express from 'express';
-import users from '../models/Users.js'
-
+import * as userControllers from "../controllers/userControllers.js";
 
 const router = express.Router()
 // ici je select tout et j'ai un un retour en json
-router.get("/", async (req : object,res : object ) =>{
-    const usersAll = await users.findAll();
-    res.json(usersAll);
-});
+router.get("/", userControllers.getAllUsers);
 // ici je crée un user et je le met dans Users
-router.post("/", async (req:object,res:object) => {
-    const user = await users.create(req.body);
-    res.json(user);
-});
+router.post("/", userControllers.postUsers);
 // ici je supprime un user dans Users selon son id
-
-router.delete("/:id",async (req:object,res:object)=>{
-    const user = await users.findByPk(req.params.id);
-    if (!user) return res.status(404).json({error : "pas de user ayant cet ID"});
-    await user.destroy();
-    res.json({message: `User ${req.params.id} a été supprimé`});
-});
+router.delete("/:id",userControllers.deleteUsers);
 
 export default router;
