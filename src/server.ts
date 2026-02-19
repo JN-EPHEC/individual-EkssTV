@@ -3,6 +3,7 @@ import apiRoutes from './routes/apiRoutes.js';
 import sequelize from './config/database.js';
 import apiGroupes from './routes/apiGroupes.js';
 import {requestLogger} from './middlewares/logger.js'
+import { ErrorHandler } from './middlewares/errorHandler.js';
 //Constantes
 const app = express();
 const port = 3000;
@@ -18,6 +19,8 @@ app.use('/',express.static('public'));
 app.use('/api/groupes',apiGroupes);
 app.use('/groupes',express.static('public/groupes'));
 
+//Apres toute les routes le errorhandler pour gerer les erreurs
+app.use(ErrorHandler);
 ///Dans la console
     
     /// Connection test for sqlite and Sequelize
