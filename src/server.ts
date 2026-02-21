@@ -6,7 +6,7 @@ import {requestLogger} from './middlewares/logger.js'
 import { ErrorHandler } from './middlewares/errorHandler.js';
 import swaggerUi from 'swagger-ui-express';
 import { swaggerSpec } from './config/swagger.js';
-
+import cors from "cors";
 //Constantes
 const app = express();
 const port = 3000;
@@ -15,7 +15,8 @@ const port = 3000;
 app.use(express.json());
 // Pour utiliser le logger 
 app.use(requestLogger);
-
+//Pour autorisé le front a parler avec le back 
+app.use(cors());
 //Pour pouvoir utiliser SwaggerUi 
 app.use("/api-docs", swaggerUi.serve,swaggerUi.setup(swaggerSpec));
 ///Redirection de request
