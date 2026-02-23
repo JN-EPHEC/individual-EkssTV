@@ -1,14 +1,10 @@
 import express from "express";
-import relation from "./relation.js";
 import apiArtistes from "./apiArtistes.js";
-
+import * as groupesControllers from "../controllers/groupesControllers.js"
 
 const router = express.Router();
 // redirection 
 router.use("/artistes",apiArtistes);
-//model utilisée
-const groupes = relation.groupes;
-const artistes = relation.artistes;
 //Methode appliquée 
 //GET
 /**
@@ -28,10 +24,7 @@ const artistes = relation.artistes;
  *               items:
  *                 $ref: '#/components/schemas/Groupe'
  */
-router.get("/",async (req:object,res:object) => {
-    const groupeAll = await groupes.findAll();
-    res.status(200).json(groupeAll);
-});
+router.get("/",groupesControllers.getAllGroups);
 /**
  * @openapi
  * /api/groupes/{id}:
@@ -53,13 +46,7 @@ router.get("/",async (req:object,res:object) => {
  */
 
 
-router.get("/:id",async (req:object,res:object) => {
-    let id = req.params.id
-    const groupeAll = await groupes.findAll({
-        where : {groupeId : id}
-    });
-    res.status(200).json(groupeAll);
-});
+router.get("/:id",groupesControllers.getGroupsById);
 //POST
 /**
  * @openapi
@@ -79,11 +66,7 @@ router.get("/:id",async (req:object,res:object) => {
  *         description: Groupe créé
  */
 
-router.post("/",async (req:object,res:object) => {
-    const grp = await groupes.create(req.body);
-    res.status(201).json(grp);
-    console.log(`Le groupe ${grp} à bien été crée`)
-});
+router.post("/",groupesControllers.postGroup);
 //DELETE
 /**
  * @openapi
@@ -105,13 +88,6 @@ router.post("/",async (req:object,res:object) => {
  *         description: Groupe introuvable
  */
 
-router.delete('/:id',async (req:object,res:object) => {
-    const grp = await groupes.findByPk(req.params.id);
-    if (!grp) return res.status(404).json({error : "groupe invalide"});
-    await grp.destroy;
-    let message = `Le groupe ${req.params.id} a été supprimé`;
-    res.status(204).json({"message": message});
-    console.log(message)
-})
+router.delete('/:id',groupesControllers.deleteUsers)
 
 export default router;

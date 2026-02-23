@@ -19,7 +19,7 @@ function addUser(form){
 };
 
 async function deleteUser(button){
-    console.log(button.id);
+    
     try{
         const response = await fetch(`http://localhost:3000/api/users/${button.id}`,{
         method: 'DELETE',

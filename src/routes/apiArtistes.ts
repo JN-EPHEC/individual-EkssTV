@@ -1,10 +1,7 @@
 import express from "express";
-import relation from "./relation.js";
-
+import * as artistesControllers from "../controllers/artistesControllers.js";
 const router = express.Router();
-//relation
-const artistes = relation.artistes;
-const groupes = relation.groupes;
+
 // methode
 /// GET tout 
 /**
@@ -19,16 +16,7 @@ const groupes = relation.groupes;
  *         description: Liste des artistes
  */
 
-router.get('/', async (req:object,res:object)=>{
-    const artistesAll = await artistes.findAll({
-               include: {
-            model: groupes,
-            as: "groupe",
-            attributes: ["nom"] 
-        }
-    });
-    res.status(200).json(artistesAll);
-});
+router.get('/',artistesControllers.getAllArtistes);
 ///GET id
 /**
  * @openapi
@@ -49,18 +37,7 @@ router.get('/', async (req:object,res:object)=>{
  */
 
 
-router.get('/:id', async (req:object,res:object)=>{
-    let artId = req.params.id;
-    const artiste = await artistes.findAll({
-        where : {id : artId},
-       include: {
-            model: groupes,
-            as: "groupe",
-            attributes: ["nom"] 
-        }
-    });
-    res.status(200).json(artiste);
-});
+router.get('/:id',artistesControllers.getArtisteById);
 ///GET artiste par id de groupe
 /**
  * @openapi
@@ -80,18 +57,7 @@ router.get('/:id', async (req:object,res:object)=>{
  *         description: Liste des artistes du groupe
  */
 
-router.get('/asgroupe/:id', async (req:object,res:object)=>{
-    let id = req.params.id;
-    const artistesGrouped = await artistes.findAll({
-        where : {groupeId : id},
-        include: {
-            model: groupes,
-            as: "groupe",
-            attributes: ["nom"] 
-        }
-    });
-    res.json(artistesGrouped);
-});
+router.get('/asgroupe/:id',artistesControllers.getArtistesByIdGroupe);
 ///GET artiste par id de sexe
 /**
  * @openapi
@@ -110,13 +76,7 @@ router.get('/asgroupe/:id', async (req:object,res:object)=>{
  *       200:
  *         description: Liste des artistes du même sexe
  */
-router.get('/sexe/:sexe', async (req:object,res:object)=>{
-    let sexe = req.params.sexe;
-    const artistebySexe = await artistes.findAll({
-        where : {sexe}
-    });
-    res.status(200).json(artistebySexe);
-});
+router.get('/sexe/:sexe',artistesControllers.getArtistesBySexe);
 ///post 
 /**
  * @openapi
@@ -136,10 +96,6 @@ router.get('/sexe/:sexe', async (req:object,res:object)=>{
  *         description: Artiste créé
  */
 
-router.post("/",async (req:Object,res:Object) => {
-    const art = await artistes.create(req.body);
-    res.status(201).json(art);
-    console.log(`L'artiste ${art} à bien été crée`)
-});
+router.post("/",artistesControllers.postArtiste);
 
 export default router
