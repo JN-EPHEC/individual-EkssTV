@@ -4,7 +4,7 @@ import relation from "./relation.js";
 
 const groupes = relation.groupes;
 
-export const getAllGroups = async (req:object,res:object) => {
+export const getAllGroups = async (req:Request,res:Response) => {
     try {
         const groupeAll = await groupes.findAll();
         res.status(200).json(groupeAll);
@@ -13,7 +13,7 @@ export const getAllGroups = async (req:object,res:object) => {
     }
 }
 
-export const getGroupsById = async (req:object,res:object) => {
+export const getGroupsById = async (req:Request,res:Response) => {
     try {
         let id = req.params.id
         const groupeAll = await groupes.findAll({
@@ -25,7 +25,7 @@ export const getGroupsById = async (req:object,res:object) => {
     }
 }
 
-export const postGroup = async (req:object,res:object) => {
+export const postGroup = async (req:Request,res:Response) => {
      try {
         const grp = await groupes.create(req.body);
         res.status(201).json(grp);

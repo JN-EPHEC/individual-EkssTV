@@ -1,12 +1,12 @@
 import express from 'express';
-import apiRoutes from './routes/apiRoutes.js';
 import sequelize from './config/database.js';
-import apiGroupes from './routes/apiGroupes.js';
 import {requestLogger} from './middlewares/logger.js'
 import { ErrorHandler } from './middlewares/errorHandler.js';
 import swaggerUi from 'swagger-ui-express';
 import { swaggerSpec } from './config/swagger.js';
 import cors from "cors";
+//Import du router
+import apiRoutes from './routes/apiRoutes.js';
 //Constantes
 const app = express();
 const port = 3000;
@@ -23,7 +23,6 @@ app.use("/api-docs", swaggerUi.serve,swaggerUi.setup(swaggerSpec));
 app.use('/api',apiRoutes);
 app.use('/',express.static('public'));
 //DEVOIR 1
-app.use('/api/groupes',apiGroupes);
 app.use('/groupes',express.static('public/groupes'));
 
 //Apres toute les routes le errorhandler pour gerer les erreurs

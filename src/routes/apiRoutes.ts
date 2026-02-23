@@ -1,7 +1,6 @@
 import express from 'express';
 import userRoutes from './userRoutes.js';
-import etudiantRoutes from './etudiantRoutes.js';
-import apiHello from './apiHello.js';
+import apiGroupes from './apiGroupes.js';
 const router = express.Router()
 //Racine
 router.get("/", (req : object,res:object) => {
@@ -10,6 +9,5 @@ router.get("/", (req : object,res:object) => {
 });
 //Redirection
 router.use('/users',userRoutes);
-router.use('/data',etudiantRoutes);
-router.use('/hello',apiHello)
+router.use('/groupes',apiGroupes);
 export default router;
