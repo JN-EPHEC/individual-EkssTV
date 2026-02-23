@@ -39,19 +39,20 @@ J'explique en dessous le projet tout ça, ça sera normalement mis à jour petit
   index.html
   script.js
 
-/src
-  /config
-  /controllers
-  /middlewares
-  /models
-  /routes
-  server.ts
-
+/server
+  /src
+    /config
+    /controllers
+    /middlewares
+    /models
+    /routes
+    server.ts
+    database.sqlite
+    package.json
+    package-lock.json
+    tsconfig.json
 .gitignore
-database.sqlite
-package.json
-package-lock.json
-tsconfig.json
+
 ```
 
 ---
