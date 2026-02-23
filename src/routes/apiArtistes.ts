@@ -1,5 +1,8 @@
 import express from "express";
 import * as artistesControllers from "../controllers/artistesControllers.js";
+import { checkIdParam } from "../middlewares/checkIdParam.js";
+import { checkSexeParam } from "../middlewares/checkSexeParam.js";
+
 const router = express.Router();
 
 // methode
@@ -37,7 +40,7 @@ router.get('/',artistesControllers.getAllArtistes);
  */
 
 
-router.get('/:id',artistesControllers.getArtisteById);
+router.get('/:id',checkIdParam,artistesControllers.getArtisteById);
 ///GET artiste par id de groupe
 /**
  * @openapi
@@ -57,7 +60,7 @@ router.get('/:id',artistesControllers.getArtisteById);
  *         description: Liste des artistes du groupe
  */
 
-router.get('/asgroupe/:id',artistesControllers.getArtistesByIdGroupe);
+router.get('/asgroupe/:id',checkIdParam,artistesControllers.getArtistesByIdGroupe);
 ///GET artiste par id de sexe
 /**
  * @openapi
@@ -76,7 +79,7 @@ router.get('/asgroupe/:id',artistesControllers.getArtistesByIdGroupe);
  *       200:
  *         description: Liste des artistes du même sexe
  */
-router.get('/sexe/:sexe',artistesControllers.getArtistesBySexe);
+router.get('/sexe/:sexe',checkSexeParam,artistesControllers.getArtistesBySexe);
 ///post 
 /**
  * @openapi

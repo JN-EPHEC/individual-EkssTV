@@ -1,7 +1,7 @@
 import express from "express";
 import apiArtistes from "./apiArtistes.js";
 import * as groupesControllers from "../controllers/groupesControllers.js"
-
+import { checkIdParam } from "../middlewares/checkIdParam.js";
 const router = express.Router();
 // redirection 
 router.use("/artistes",apiArtistes);
@@ -46,7 +46,7 @@ router.get("/",groupesControllers.getAllGroups);
  */
 
 
-router.get("/:id",groupesControllers.getGroupsById);
+router.get("/:id",checkIdParam,groupesControllers.getGroupsById);
 //POST
 /**
  * @openapi
@@ -88,6 +88,6 @@ router.post("/",groupesControllers.postGroup);
  *         description: Groupe introuvable
  */
 
-router.delete('/:id',groupesControllers.deleteUsers)
+router.delete('/:id',checkIdParam,groupesControllers.deleteUsers)
 
 export default router;

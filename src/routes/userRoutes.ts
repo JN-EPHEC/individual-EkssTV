@@ -1,5 +1,6 @@
 import express from 'express';
 import * as userControllers from "../controllers/userControllers.js";
+import { checkIdParam } from '../middlewares/checkIdParam.js';
 
 const router = express.Router()
 // ici je select tout et j'ai un un retour en json
@@ -63,6 +64,6 @@ router.post("/", userControllers.postUsers);
  *         description: User introuvable
  */
 
-router.delete("/:id",userControllers.deleteUsers);
+router.delete("/:id",checkIdParam,userControllers.deleteUsers);
 
 export default router;
