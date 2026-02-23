@@ -35,7 +35,7 @@ app.use(ErrorHandler);
         console.log('Connection has been established successfully.');
             ///Syncronisation des tables (model)
             try {
-                sequelize.sync()
+                sequelize.sync();
                 console.log('la syncro est done')
                 /// Lancement du Serveur
                 app.listen(port, () => {

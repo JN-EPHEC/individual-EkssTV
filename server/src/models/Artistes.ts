@@ -30,6 +30,11 @@ artistes.init(
                 key : "groupeId"
             }
         },
+        imageUrl: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: "./img/pasgroupe.jpeg"
+        }
     },
     {
         //les options de la table ici (model)

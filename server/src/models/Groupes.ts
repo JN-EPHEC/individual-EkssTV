@@ -23,6 +23,11 @@ groupes.init(
             type : DataTypes.BOOLEAN,
             allowNull: true,
         },
+        imageUrl: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: "./img/pasgroupe.jpeg"
+        }
     },
     {
         //les options de la table ici (model)

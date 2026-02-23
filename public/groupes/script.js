@@ -3,7 +3,7 @@ function makeCardsGroup(dico){
     for(let i of dico){
         let status = "Oui"
         if(!i.agence){status = "Non"}
-        cards += `<div class="card m-1 " style="width: 18rem;"><img class="img-thumbnail"src="./img/pasgroupe.jpeg" class="card-img-top" alt="not real image"><div class="card-body">
+        cards += `<div class="card m-1 " style="width: 18rem;"><img class="img-thumbnail"src="${i.imageUrl}" class="card-img-top" alt="not real image"><div class="card-body">
                 <h5 class="card-title">${i.nom} </h5>
                 <p class="card-text"> Agence : ${i.agence}</p>
                 <p class="card-text"> Actif : ${status}</p>
@@ -18,7 +18,7 @@ function makeCardsArtist(dico){
     for(let i of dico){
         let sexe = "Woman"
         if(i.sexe =="M"){sexe = "Man"}
-        cards += `<div class="card m-1 " style="width: 18rem;"><img class="img-thumbnail"src="./img/pasgroupe.jpeg" class="card-img-top" alt="not real image"><div class="card-body">
+        cards += `<div class="card m-1 " style="width: 18rem;"><img class="img-thumbnail"src="${i.imageUrl}" class="card-img-top" alt="not real image"><div class="card-body">
                 <h5 class="card-title">${i.nickname} </h5>
                 <p class="card-text"> Nationalité : ${i.nation} </p>
                 <p class="card-text"> Sexe : ${sexe}</p>
