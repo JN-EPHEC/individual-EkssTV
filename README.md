@@ -121,5 +121,5 @@ http://localhost:3000/groupes
 
 ## 👤 Auteur
 
-**Matthieu — EPHEC — HE202579 **  
+** EKSS — EPHEC — HE202579 **  
 > Projet réalisé dans le cadre du cours de DEV3.
