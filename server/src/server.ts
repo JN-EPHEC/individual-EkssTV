@@ -21,9 +21,9 @@ app.use(cors());
 app.use("/api-docs", swaggerUi.serve,swaggerUi.setup(swaggerSpec));
 ///Redirection de request
 app.use('/api',apiRoutes);
-app.use('/',express.static('public'));
+app.use('/',express.static('../public'));
 //DEVOIR 1
-app.use('/groupes',express.static('public/groupes'));
+app.use('/groupes',express.static('../public/groupes'));
 
 //Apres toute les routes le errorhandler pour gerer les erreurs
 app.use(ErrorHandler);
