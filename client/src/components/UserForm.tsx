@@ -28,6 +28,7 @@ export default function UserForm({ setData }: UserFormProps) {
                 value={nom}
                 placeholder="Nom"
                 onChange={(e) => setNom(e.target.value)}
+                required
                 />
           </div>
           <div className="mb-3 col-auto  ">
@@ -37,6 +38,7 @@ export default function UserForm({ setData }: UserFormProps) {
                 value={prenom}
                 placeholder="Prénom"
                 onChange={(e) => setPrenom(e.target.value)}
+                required
                 />
           </div>
           <div className="col-auto">

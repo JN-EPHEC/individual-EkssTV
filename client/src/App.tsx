@@ -2,16 +2,14 @@ import { useState, useEffect } from 'react';
 import './App.css';
 
 //Fonctions utilisées
-import makeList from "./utils/makeList.tsx";
-import deleteUser from './utils/deleteUser.tsx';
+
 import loadData from './utils/loadData.tsx';
 //Components
 import UserForm from "./components/UserForm";
-
+import UserList from './components/UserList.tsx';
 
 //Définition de d'un interface User pour le typage
 import type { User } from './types/user.tsx';
-
 
 function App() {
   const [data, setData] = useState<User[]>([]);
@@ -25,9 +23,8 @@ function App() {
     <div className="container mt-4">
       <h1 className="text-center">Liste des étudiants</h1>
       <UserForm setData={setData} />
-      <ul className="list-group row g-4 w-50 mx-auto"  id="listUsers">
-        {makeList(data, (id) => deleteUser(id, setData))}
-      </ul>
+      <UserList data={data} setData={setData} />
+
     </div>
   );
 }
