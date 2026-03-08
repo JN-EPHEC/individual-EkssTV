@@ -33,6 +33,8 @@ J'explique en dessous le projet tout ça, ça sera normalement mis à jour petit
 ## 📁 Arborescence du Projet
 
 ```
+/client
+  ... (flemme de mettre a jour la bisous)
 /public
   /groupes
     /img
