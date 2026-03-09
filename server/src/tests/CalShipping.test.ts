@@ -1,6 +1,6 @@
 import { describe, test, expect } from "@jest/globals";
 import { calculateShipping } from "../utils/shipping";
-import { ShippingCases} from "./CalShippingCases";
+import { ShippingCases} from "./cases/CalShippingCases";
 type ShippingCase = [number, number, 'standard' | 'express', number | "Exception", string];
 describe("Shipping Utils", () => {
     test.each(ShippingCases as ShippingCase[])(

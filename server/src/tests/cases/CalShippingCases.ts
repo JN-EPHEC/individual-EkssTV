@@ -8,9 +8,9 @@ export const ShippingCases = [
     [1500,25,"standard",75,"Couvre la paire de base (D3, W2) et(D3, T1)."],
 
     //erreurs
-    //[-1,5,"standard","Exception"," Distance négative interdite"],
-    //[10,0,"standard","Exception","Poids nul interdit"],
-    //[10,-5,"standard","Exception","Poids négatif interdit"],
-    //[10,51,"standard","Exception","Poids trop lourd interdit"],
+    [-1,5,"standard","Exception"," Distance négative interdite"],
+    [10,0,"standard","Exception","Poids nul interdit"],
+    [10,-5,"standard","Exception","Poids négatif interdit"],
+    [10,51,"standard","Exception","Poids trop lourd interdit"],
 ];
 
