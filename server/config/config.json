@@ -1,10 +1,10 @@
 {
   "development": {
-    "username": "${DB_USER}",
+    "username": "postgres",
     "password": "${DB_PASS}",
-    "database": "${DB_NAME}",
-    "host": "${DB_HOST}",
-    "port": "${DB_PORT}",
+    "database": "postgres",
+    "host": "aws-1-eu-west-3.pooler.supabase.com",
+    "port": "6543",
     "dialect": "postgres",
     "dialectOptions": {
       "ssl": {
@@ -15,11 +15,11 @@
   },
 
   "test": {
-    "username": "${DB_USER}",
+    "username": "postgres",
     "password": "${DB_PASS}",
-    "database": "${DB_NAME}",
-    "host": "${DB_HOST}",
-    "port": "${DB_PORT}",
+    "database": "postgres",
+    "host": "aws-1-eu-west-3.pooler.supabase.com",
+    "port": "6543",
     "dialect": "postgres",
     "dialectOptions": {
       "ssl": {
@@ -30,11 +30,11 @@
   },
 
   "production": {
-    "username": "${DB_USER}",
+    "username": "postgres",
     "password": "${DB_PASS}",
-    "database": "${DB_NAME}",
-    "host": "${DB_HOST}",
-    "port": "${DB_PORT}",
+    "database": "postgres",
+    "host": "aws-1-eu-west-3.pooler.supabase.com",
+    "port": "6543",
     "dialect": "postgres",
     "dialectOptions": {
       "ssl": {
