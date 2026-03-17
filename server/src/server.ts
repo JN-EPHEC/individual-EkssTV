@@ -1,10 +1,16 @@
 import express from 'express';
+import dotenv from "dotenv";
+dotenv.config();
 import sequelize from './config/database.js';
 import {requestLogger} from './middlewares/logger.js'
 import { ErrorHandler } from './middlewares/errorHandler.js';
 import swaggerUi from 'swagger-ui-express';
 import { swaggerSpec } from './config/swagger.js';
+
+
+
 import cors from "cors";
+
 //Import du router
 import apiRoutes from './routes/apiRoutes.js';
 //Constantes
@@ -28,23 +34,35 @@ app.use('/groupes',express.static('../public/groupes'));
 //Apres toute les routes le errorhandler pour gerer les erreurs
 app.use(ErrorHandler);
 ///Dans la console
-    
-    /// Connection test for sqlite and Sequelize
+async function startServer() {
     try {
-        sequelize.authenticate();
+        await sequelize.authenticate();
         console.log('Connection has been established successfully.');
             ///Syncronisation des tables (model)
             try {
-                sequelize.sync();
+                try {
+                await sequelize.sync();
                 console.log('la syncro est done')
+                try {
                 /// Lancement du Serveur
                 app.listen(port, () => {
                     console.log(`Serveur lancé sur http://localhost:${port}`);
                 });
+                 } catch (error){
+                console.error(`'listen pas on : ${error}`)
+                }
+                } catch (error){
+                console.error(`'La syncro a foiré : ${error}`)
+                }
+
+
             } catch (error){
                 console.error('La syncro a foiré')
             }
     } catch (error) {
         console.error('Unable to connect to the database:', error);
     }
+}    
+startServer();
+    
 

@@ -1,0 +1,45 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "SYnl23s1999àP,e1ccpcpfpdggs-c(G)I-dd20",
+    "database": "postgres",
+    "host": "db.tpfirrfjkftrdmicijyo.supabase.co",
+    "port": 5432,
+    "dialect": "postgres",
+    "dialectOptions": {
+    "ssl": {
+      "require": true,
+      "rejectUnauthorized": false
+      }
+    }
+  },
+
+  "test": {
+    "username": "postgres",
+    "password": "SYnl23s1999àP,e1ccpcpfpdggs-c(G)I-dd20",
+    "database": "postgres",
+    "host": "db.tpfirrfjkftrdmicijyo.supabase.co",
+    "port": 5432,
+    "dialect": "postgres",
+    "dialectOptions": {
+    "ssl": {
+      "require": true,
+      "rejectUnauthorized": false
+      }
+    }
+  },
+  "production": {
+    "username": "postgres",
+    "password": "SYnl23s1999àP,e1ccpcpfpdggs-c(G)I-dd20",
+    "database": "postgres",
+    "host": "db.tpfirrfjkftrdmicijyo.supabase.co",
+    "port": 5432,
+    "dialect": "postgres",
+    "dialectOptions": {
+    "ssl": {
+      "require": true,
+      "rejectUnauthorized": false
+      }
+    }
+  }
+}

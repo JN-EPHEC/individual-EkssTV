@@ -1,8 +1,11 @@
 import { Sequelize} from "sequelize";
-
-const sequelize = new Sequelize({
-    dialect: 'sqlite',
-    storage: './database.sqlite'
+import dotenv from "dotenv";
+dotenv.config();
+const sequelize = new Sequelize(process.env.DATABASE_URL);
+sequelize.authenticate().then(() => {
+console.log("Database connected successfully!");
+})
+.catch((err) => {
+console.error("Database connection error:", err);
 });
-
 export default sequelize

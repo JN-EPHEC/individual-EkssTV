@@ -26,7 +26,7 @@ artistes.init(
         groupeId:{
             type :DataTypes.INTEGER,
             references : {
-                model: "Groupes",
+                model: "groupes",
                 key : "groupeId"
             }
         },
