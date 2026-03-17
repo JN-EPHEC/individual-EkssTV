@@ -21,10 +21,11 @@ export const postUsers = async (req:Request,res:Response) => {
 };
 export const deleteUsers = async (req:Request,res:Response)=>{
     try {
-            const user = await users.findByPk(req.params.id);
+            const id = req.params.id as string;
+            const user = await users.findByPk(id);
             if (!user) return res.status(404).json({error : "pas de user ayant cet ID"});
             await user.destroy();
-            res.status(204).json({message: `User ${req.params.id} a été supprimé`});
+            res.status(204).json({message: `User ${id} a été supprimé`});
     } catch (error) {
         res.status(500).json({ error: (error as any).message });
     };

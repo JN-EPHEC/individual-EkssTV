@@ -38,10 +38,11 @@ export const postGroup = async (req:Request,res:Response) => {
 
 export const deleteUsers = async (req:Request,res:Response)=>{
     try {
-            const grp = await groupes.findByPk(req.params.id);
+            const id = req.params.id as string;
+            const grp = await groupes.findByPk(id);
             if (!grp) return res.status(404).json({error : "groupe invalide"});
             await grp.destroy;
-            let message = `Le groupe ${req.params.id} a été supprimé`;
+            let message = `Le groupe ${id} a été supprimé`;
             res.status(204).json({"message": message});
             console.log(message)
     } catch (error) {
