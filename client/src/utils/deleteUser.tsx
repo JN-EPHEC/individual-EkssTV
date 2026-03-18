@@ -6,7 +6,7 @@ async function deleteUser(
     setData: (users: User[]) => void
     ) {
   try {
-    await fetch(`http://localhost:3000/api/users/${id}`, {
+    await fetch(`${import.meta.env.VITE_API_URL}/users/${id}`, {
       method: "DELETE",
     });
     await loadData(setData)

@@ -5,7 +5,8 @@
   "main": "hello-world.js",
   "scripts": {
     "build": "tsc",
-    "start": "tsx watch src/server.ts"
+    "start": "tsx watch src/server.ts",
+    "dev":"tsx watch src/server.ts"
   },
   "keywords": [],
   "author": "Ekss",

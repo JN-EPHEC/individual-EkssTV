@@ -9,7 +9,7 @@ async function postUser(
 ) {
     try {
         let User = {"prenom" : prenom, "nom" : nom}
-        await fetch("http://localhost:3000/api/users", {
+        await fetch(`${import.meta.env.VITE_API_URL}/users`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
