@@ -28,4 +28,5 @@ jobs:
           target: "/home/ekss/web/www"
           port : ${{ secrets.SSH_PORT }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
-
+          strip_components: 2
+      
