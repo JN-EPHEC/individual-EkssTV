@@ -26,4 +26,6 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "client/dist/*"
           target: "/home/ekss/web/www"
-      
+          port : ${{ secrets.SSH_PORT }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+
