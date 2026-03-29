@@ -2,6 +2,7 @@ import express from 'express';
 import type { Request,Response } from "express";
 import userRoutes from './userRoutes.js';
 import apiGroupes from './apiGroupes.js';
+import apiAdmin from './apiAdmin.js'
 const router = express.Router()
 //Racine
 router.get("/", (req : Request,res:Response) => {
@@ -11,4 +12,5 @@ router.get("/", (req : Request,res:Response) => {
 //Redirection
 router.use('/users',userRoutes);
 router.use('/groupes',apiGroupes);
+router.use('/admin',apiAdmin);
 export default router;

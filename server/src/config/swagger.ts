@@ -1,6 +1,5 @@
 
 import swaggerJsdoc from "swagger-jsdoc";
-
 const swaggerOptions = {
     swaggerDefinition : {
         openapi : "3.0.0",
@@ -8,6 +7,14 @@ const swaggerOptions = {
             title : "Mon API de fou malade",
             version : "1.0.0",
         },
+        component: {
+        securitySchemes:{
+            basicAuth:{
+                type:"http",
+                scheme:'basic'
+            }
+        }
+    },
     },
     // Chemin vers les fichiers qui ont des annotations
     apis : ["./src/routes/*.ts","./src/config/swaggerSchemas.ts"],
