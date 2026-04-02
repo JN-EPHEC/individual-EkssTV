@@ -12,6 +12,10 @@ const swaggerOptions = {
             basicAuth:{
                 type:"http",
                 scheme:'basic'
+            },
+            digestAuth:{
+                type:"http",
+                scheme:'digest'
             }
         }
     },
